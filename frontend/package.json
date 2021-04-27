@@ -1,11 +1,11 @@
 {
-  "name": "compareKaro",
+  "name": "comparekaro",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 3001"
+    "start": "next start"
   },
   "dependencies": {
     "antd": "^4.2.3",
