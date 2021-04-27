@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <>
-      <ReusableHead title='Flights.rip | Find your next flight' />
+      <ReusableHead title='compareKaro' />
 
       <Layout>
         <Header>
