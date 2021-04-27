@@ -1,0 +1,15 @@
+{
+  "name": "compareKaro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": "https://github.com/patiltushar2101/compareKaro.git",
+  "author": "Signofactory",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^5.2.0"
+  },
+  "scripts": {
+    "dev": "cd frontend && yarn install && yarn dev"
+  }
+}
