@@ -10,6 +10,6 @@
     "concurrently": "^5.2.0"
   },
   "scripts": {
-    "dev": "cd frontend && yarn install && yarn dev"
+    "dev": "cd frontend && npm start"
   }
 }
