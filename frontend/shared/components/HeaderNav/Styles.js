@@ -1,17 +1,15 @@
 import styled from 'styled-components';
 
-import { breakpoint } from 'shared/styles';
-
 import { Space } from 'antd';
 
 export const StyledSpace = styled(Space)`
   width: 100%;
-  justify-content: space-between;
+  height: 100%;
 `
 
 export const Logo = styled.h3`
-  margin-bottom: 0;
+  opacity: 1;
   color: #fff;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 400;
 `

@@ -28,7 +28,15 @@ export default function Home() {
       <ReusableHead title='compareKaro' />
 
       <Layout>
-        <Header>
+        <Header style={{
+          '--color-1': 'deepskyblue',
+          '--color-2': 'navy',
+          background: `
+          linear-gradient(90deg, rgba(17,17,17,1) 24%, rgba(240,252,255,1) 63%, rgba(163,163,163,1) 100%)
+    `,
+          color: 'white',
+          opacity: '0.7'
+        }}>
           <HeaderNav />
         </Header>
 

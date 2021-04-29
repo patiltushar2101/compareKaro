@@ -10,21 +10,21 @@ export function ReusableFooter(props) {
   }
   return (
     <Footer style={stylecss}>
-      <footer class="footer-distributed">
+      <footer className="footer-distributed">
 
-        <div class="footer-right">
+        <div className="footer-right">
 
-          <a href="/"><i class="fab fa-facebook-f"></i></a>
-          <a href="/"><i class="fa fa-twitter"></i></a>
-          <a href="/"><i class="fa fa-linkedin"></i></a>
-          <a href="/"><i class="fa fa-github"></i></a>
+          <a href="/"><i className="fab fa-facebook-f"></i></a>
+          <a href="/"><i className="fa fa-twitter"></i></a>
+          <a href="/"><i className="fa fa-linkedin"></i></a>
+          <a href="/"><i className="fa fa-github"></i></a>
 
         </div>
 
-        <div class="footer-left">
+        <div className="footer-left">
 
-          <p class="footer-links">
-            <a class="link-1" href="#">Home</a>
+          <p className="footer-links">
+            <a className="link-1" href="#">Home</a>
 
             <a href="#">Blog</a>
 

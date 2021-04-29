@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { breakpoint } from 'shared/styles';
 
 export const HomeSearch = styled.div`
-  padding: 50px;
+  padding: 100px 50px 0px 50px;
   background-size: cover;
   background-position: center;
 
