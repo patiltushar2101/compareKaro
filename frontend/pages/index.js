@@ -35,14 +35,13 @@ export default function Home() {
         <Content style={{ background: '#fff' }}>
           <HomeSearch>
             <SearchContainer>
-              <Title>Where to next?</Title>
               <SearchForm
                 initialValues={initialValues}
               />
             </SearchContainer>
           </HomeSearch>
           <Section>
-            <Title level={2} >Ready for an adventure? Start booking!</Title>
+            <Title level={2} >Heavens on the earth</Title>
             <DealsCarousel />
           </Section>
 

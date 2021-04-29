@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { breakpoint } from 'shared/styles';
 
 export const HomeSearch = styled.div`
-  padding: 140px 50px 180px 50px;
+  padding: 50px;
   background-size: cover;
   background-position: center;
 
@@ -22,7 +22,7 @@ export const SearchContainer = styled.div`
 `
 
 export const Section = styled.div`
-  padding: 100px 50px;
+  padding: 20px;
   margin: auto;
 
   &>h2{

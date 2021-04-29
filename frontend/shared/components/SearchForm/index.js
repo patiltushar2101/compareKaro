@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import Router from 'next/router';
 
+
 // Components
 import { Form, Row, Col, Button, Select, DatePicker, Switch, Space } from 'antd';
 const { RangePicker } = DatePicker;
@@ -24,6 +25,8 @@ export const SearchForm = ({ initialValues }) => {
   // Define the initialState for search results arrays and return/one-way selection
   const [data, setData] = useState(undefined)
   const [isReturn, setIsReturn] = useState(true)
+  const [adult, setAdult] = useState(1);
+  const [child, setChild] = useState(0);
 
   // Define the form used for the form (needed to get the initial props)
   const [form] = Form.useForm();
@@ -79,124 +82,139 @@ export const SearchForm = ({ initialValues }) => {
 
 
   return (
-    <StyledForm
-      name="ticket_search"
-      initialValues={{ ...initialValues, isReturn: isReturn }}
-      form={form}
-      onFinish={onFinish}
-    >
-      <Row gutter={[24, 24]}>
-        <Col span={24}>
-          <FormItem
-            name='isReturn'
-          >
-            <Space align="center">
-              <span>One way</span>
-              <Switch checked={isReturn} onChange={() => setIsReturn(!isReturn)} />
-              <span>Return</span>
-            </Space>
-          </FormItem>
-        </Col>
-      </Row>
-
-      <Row gutter={[16, 16]}>
-        <Col xs={24} md={12} lg={6}>
-          <FormItem
-            rules={[
-              {
-                required: true,
-                message: 'Input something!',
-              },
-            ]}
-            name='origin'
-          >
-            <Select
-              showSearch
-              allowClear={true}
-              size="large"
-              placeholder={'Origin'}
-              defaultActiveFirstOption={false}
-              showArrow={false}
-              filterOption={false}
-              onSearch={handleSearch}
-              notFoundContent={null}
-              style={{ width: '100%' }}
+    <div style={{ zIndex: 3 }}>
+      <StyledForm
+        name="ticket_search"
+        initialValues={{ ...initialValues, isReturn: isReturn }}
+        form={form}
+        onFinish={onFinish}
+      >
+        <Row gutter={[24, 24]}>
+          <Col span={24}>
+            <FormItem
+              name='isReturn'
             >
-              {
-                data && data.map(d => {
-                  return <Select.Option key={d.PlaceId}>{d.PlaceName}</Select.Option>
-                })
-              }
-            </Select>
-          </FormItem>
-        </Col>
+              <Space align="center">
+                <span>One way</span>
+                <Switch checked={isReturn} onChange={() => setIsReturn(!isReturn)} />
+                <span>Return</span>
+              </Space>
+            </FormItem>
+          </Col>
+        </Row>
 
-        <Col xs={24} md={12} lg={6}>
-          <FormItem
-            rules={[
-              {
-                required: true,
-                message: 'Input something!',
-              },
-            ]}
-            name='destination'
-          >
-            <Select
-              showSearch
-              size="large"
-              placeholder={'Destination'}
-              defaultActiveFirstOption={true}
-              showArrow={false}
-              filterOption={false}
-              onSearch={handleSearch}
-              notFoundContent={null}
-              style={{ width: '100%' }}
+        <Row gutter={[16, 16]}>
+          <Col xs={24} md={12} lg={6}>
+            <FormItem
+              rules={[
+                {
+                  required: true,
+                  message: 'Input something!',
+                },
+              ]}
+              name='origin'
             >
-              {
-                data && data.map(d => {
-                  return <Select.Option key={d.PlaceId}>{d.PlaceName}</Select.Option>
-                })
-              }
-            </Select>
-          </FormItem>
-        </Col>
-
-        <Col xs={24} md={24} lg={8}>
-
-          {
-            isReturn ?
-              <FormItem
-                name='rangeDate'
+              <Select
+                showSearch
+                allowClear={true}
+                size="large"
+                placeholder={'Origin'}
+                defaultActiveFirstOption={false}
+                showArrow={false}
+                filterOption={false}
+                onSearch={handleSearch}
+                notFoundContent={null}
+                style={{ width: '100%' }}
               >
-                <RangePicker
-                  size="large"
-                  format={dateFormat}
-                  disabledDate={disabledDate}
-                  style={{ width: '100%' }}
-                  placeholder={['Departure date', 'Return date']}
-                />
-              </FormItem>
-              :
-              <FormItem
-                name='departureDate'
-              >
-                <DatePicker
-                  size="large"
-                  format={dateFormat}
-                  disabledDate={disabledDate}
-                  style={{ width: '100%' }}
-                  placeholder='Departure date'
-                />
-              </FormItem>
-          }
-        </Col>
+                {
+                  data && data.map(d => {
+                    return <Select.Option key={d.PlaceId}>{d.PlaceName}</Select.Option>
+                  })
+                }
+              </Select>
+            </FormItem>
+          </Col>
 
-        <Col flex="auto">
-          <Button type="primary" size='large' style={{ width: '100%' }} htmlType="submit">
-            Search
+          <Col xs={24} md={12} lg={6}>
+            <FormItem
+              rules={[
+                {
+                  required: true,
+                  message: 'Input something!',
+                },
+              ]}
+              name='destination'
+            >
+              <Select
+                showSearch
+                size="large"
+                placeholder={'Destination'}
+                defaultActiveFirstOption={true}
+                showArrow={false}
+                filterOption={false}
+                onSearch={handleSearch}
+                notFoundContent={null}
+                style={{ width: '100%' }}
+              >
+                {
+                  data && data.map(d => {
+                    return <Select.Option key={d.PlaceId}>{d.PlaceName}</Select.Option>
+                  })
+                }
+              </Select>
+            </FormItem>
+          </Col>
+
+          <Col xs={24} md={24} lg={8}>
+
+            {
+              isReturn ?
+                <FormItem
+                  name='rangeDate'
+                >
+                  <RangePicker
+                    size="large"
+                    format={dateFormat}
+                    disabledDate={disabledDate}
+                    style={{ width: '100%' }}
+                    placeholder={['Departure date', 'Return date']}
+                  />
+                </FormItem>
+                :
+                <FormItem
+                  name='departureDate'
+                >
+                  <DatePicker
+                    size="large"
+                    format={dateFormat}
+                    disabledDate={disabledDate}
+                    style={{ width: '100%' }}
+                    placeholder='Departure date'
+                  />
+                </FormItem>
+            }
+          </Col>
+
+          <Col flex="auto">
+            <Button type="primary" size='large' style={{ width: '100%' }} htmlType="submit">
+              Search
           </Button>
-        </Col>
-      </Row>
-    </StyledForm>
+          </Col>
+        </Row>
+
+        <Row style={{ margin: "10px" }}>
+          <Col xs={24} md={12} lg={6}>
+            <Button onClick={() => { setAdult(Math.max(1, adult - 1)) }}>-</Button>
+            <Button>{adult}</Button>
+            <Button onClick={() => setAdult(adult + 1)}>+</Button>
+          </Col>
+          <Col xs={24} md={12} lg={6}>
+            <Button onClick={() => { setChild(Math.max(0, child - 1)) }}>-</Button>
+            <Button>{child}</Button>
+            <Button onClick={() => setChild(child + 1)}>+</Button>
+          </Col>
+        </Row>
+      </StyledForm>
+    </div>
   );
 }
